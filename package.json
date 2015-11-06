@@ -1,8 +1,7 @@
 {
   "name": "gitrepos",
   "version": "1.0.0",
-  "description": "An isomorphic application used for retrieving GitHub repos. This is an experimental project to play with isomorphism, flux, ES6, Webpack and 
-  React. Inspired by <a href='https://github.com/RookieOne/react-alt-github-example'>react-alt-github example</a>",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

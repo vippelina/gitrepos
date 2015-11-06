@@ -1,25 +1,23 @@
 import React from "react";
 import superagent from "superagent";
 import Repo from "./repo";
+import RepoStore from "../stores/reposStore";
 
 class RepoList extends React.Component{
 	constructor(){
 		super();
-		this.state = {
-			data: []
-		}
+		this.state = RepoStore.getState();
+	}
 
-	}
-	
-	componentWillMount(){
-		superagent.get("https://api.github.com/search/repositories")
-		.query({q: "angular"})
-		.send()
-		.end((err, res) =>{
-			console.log(res.body.items);
-			this.setState({data: res.body.items});
-		})
-	}
+	// componentWillMount(){
+	// 	superagent.get("https://api.github.com/search/repositories")
+	// 	.query({q: "angular"})
+	// 	.send()
+	// 	.end((err, res) =>{
+	// 		console.log(res.body.items);
+	// 		this.setState({data: res.body.items});
+	// 	})
+	// }
 
 	searchRepos = evt => {
 		var searchText = this.refs.searchText.getDOMNode().value;
@@ -37,7 +35,7 @@ class RepoList extends React.Component{
 			// })
 	}
 	render(){
-		var theList = this.state.data.map((repo) => {
+		var theList = this.state.repos.map((repo) => {
 			return(
 				<Repo data={repo}/>
 			)	
