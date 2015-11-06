@@ -1,0 +1,12 @@
+import WebPackDevServer from "webpack-dev-server";
+import webpack from "webpack"
+import config from "../../webpack.config.dev"
+
+
+var server = new WebPackDevServer(webpack(config), {
+	publicPath: config.output.publicPath,
+	hot: true,
+	stats: {colors: true}
+})
+
+server.listen(8080, "localhost", function(){})
